@@ -47,5 +47,16 @@ public class DrawingPanel extends JPanel
 		
 	}
 	
+	@Override
+	protected void paintComponent(Graphics currentGraphics)
+	{
+		super.paintComponent(currentGraphics);
+		Graphics2D mainGraphics = (Graphics2D)currentGraphics;
+		mainGraphics.setColor(Color.GREEN);
+		mainGraphics.setStroke(new BasicStroke(15));
+		mainGraphics.draw(new Rectangle(10, 10, 20, 40));
+		
+	}
+	
 	
 }
