@@ -11,7 +11,7 @@ public class ShapeFrame extends JFrame
 	public ShapeFrame(GraphicsController baseController)
 	{
 		this.baseController = baseController;
-		basePanel = new DrawingPanel(basePanel);
+		basePanel = new DrawingPanel(baseController);
 		setUpFrame();
 	}
 	
