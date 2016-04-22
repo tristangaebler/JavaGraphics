@@ -1,8 +1,12 @@
 package JavaGraphics.View;
 
 import JavaGraphics.Controller.GraphicsController;
+
 import javax.swing.*;
+
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class DrawingPanel extends JPanel
@@ -36,7 +40,7 @@ public class DrawingPanel extends JPanel
 	 */
 	private void setUpPanel()
 	{
-		
+		this.add(drawRectangle);
 	}
 	
 	/*
@@ -59,6 +63,7 @@ public class DrawingPanel extends JPanel
 				int height = (int)(Math.random() * 50);
 				
 				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				repaint();
 			}
 		});
 	}
