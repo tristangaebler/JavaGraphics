@@ -1,5 +1,6 @@
 package JavaGraphics.View;
 
+import java.awt.Graphics;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
@@ -21,9 +22,8 @@ public class ShapePanel extends JPanel
 	private ArrayList<Polygon> polygonList;
 	
 	
-	public ShapePanel(GraphicsController baseController)
+	public ShapePanel()
 	{
-		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		
 		rectangleList = new ArrayList<Rectangle>();
@@ -85,6 +85,11 @@ public class ShapePanel extends JPanel
 	public void addElipse()
 	{
 		
+	}
+	
+	protected void paintComponent(Graphics currentGraphics)
+	{
+		super.paintComponent(currentGraphics);
 	}
 	
 	private void setUpPane()

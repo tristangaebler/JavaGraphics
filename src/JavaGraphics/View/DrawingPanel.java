@@ -15,6 +15,7 @@ public class DrawingPanel extends JPanel
 	private SpringLayout baseLayout;
 	private JButton drawRectangle;
 	private ArrayList<Rectangle> rectangleList;
+	private ShapePanel shapePanel;
 	
 	public DrawingPanel(GraphicsController baseController)
 	{
@@ -22,6 +23,7 @@ public class DrawingPanel extends JPanel
 		baseLayout = new SpringLayout();
 		drawRectangle = new JButton("Rectangle");
 		rectangleList = new ArrayList<Rectangle>();
+		shapePanel = new ShapePanel();
 		
 		//====Calling the methods====
 		setUpPane();
@@ -57,13 +59,9 @@ public class DrawingPanel extends JPanel
 		drawRectangle.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 600);
-				int yPosition = (int)(Math.random() * 600);
-				int width = (int)(Math.random() * 50);
-				int height = (int)(Math.random() * 50);
-				
-				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
-				repaint();
+		
+				shapePanel.addTriangle();
+				repaint();	
 			}
 		});
 	}
