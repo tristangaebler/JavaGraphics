@@ -40,6 +40,22 @@ public class ShapePanel extends JPanel
 		setUpListeners();
 	}
 	
+	public void addPolygon()
+	{
+		int numOfSides = (int)(Math.random() * 248) + 3;
+		int [] xpoints = new int [numOfSides];
+		int [] ypoints = new int [numOfSides];
+		for(int sides = 0; sides < numOfSides; sides++)
+		{
+			xpoints[sides] = (int)(Math.random() * 300);
+			ypoints[sides] = (int)(Math.random() * 300);
+		}
+		
+		Polygon myPolygon = new Polygon(xpoints, ypoints, numOfSides);
+		polygonList.add(myPolygon);
+	}
+	
+	
 	public void addCircle()
 	{
 		
