@@ -14,7 +14,12 @@ public class DrawingPanel extends JPanel
 	private GraphicsController baseController;
 	private SpringLayout baseLayout;
 	private JButton drawRectangle;
+	private JButton drawSquare;
+	private JButton drawTriangle;
+	private JButton drawEllipse;
+	private JButton drawPolygo;
 	private JButton drawCircle;
+	private JButton clearButton;
 	private ArrayList<Rectangle> rectangleList;
 	private ShapePanel shapePanel;
 	
@@ -25,7 +30,9 @@ public class DrawingPanel extends JPanel
 		drawRectangle = new JButton("Rectangle");
 		rectangleList = new ArrayList<Rectangle>();
 		shapePanel = new ShapePanel();
+
 		drawCircle = new JButton("Draw Circle");
+		clearButton = new JButton("Clear the list");
 		
 		//====Calling the methods====
 		setUpPane();
@@ -48,6 +55,7 @@ public class DrawingPanel extends JPanel
 		this.add(drawRectangle);
 		this.add(drawCircle);
 		this.add(shapePanel);
+		this.add(clearButton);
 	}
 	
 	/*
@@ -59,16 +67,17 @@ public class DrawingPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, drawCircle, 56, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, drawRectangle, -10, SpringLayout.SOUTH, this);
 		baseLayout.putConstraint(SpringLayout.EAST, drawRectangle, -102, SpringLayout.EAST, this);		
-		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 10, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, shapePanel, 10, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, 202, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -29, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 0, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, -6, SpringLayout.NORTH, drawRectangle);
+		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -10, SpringLayout.EAST, this);
 	}
 	
 	
 	private void setUpListeners()
 	{
-		drawRectangle.addActionListener(new ActionListener(){
+		drawRectangle.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addTriangle();
@@ -76,10 +85,20 @@ public class DrawingPanel extends JPanel
 			}
 		});
 		
-		drawCircle.addActionListener(new ActionListener() {
+		drawCircle.addActionListener(new ActionListener() 
+		{
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addCircle();
+				repaint();
+			}
+		});
+		
+		clearButton.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.clear();
 				repaint();
 			}
 		});

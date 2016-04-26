@@ -124,6 +124,15 @@ public class ShapePanel extends JPanel
 		}
 	}
 	
+	public void clear()
+	{
+		polygonList.clear();
+		circleList.clear();
+		triangleList.clear();
+		ellipseList.clear();
+		repaint();
+	}
+	
 	private void setUpPane()
 	{
 		
