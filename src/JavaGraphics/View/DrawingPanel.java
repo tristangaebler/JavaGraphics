@@ -14,6 +14,7 @@ public class DrawingPanel extends JPanel
 	private GraphicsController baseController;
 	private SpringLayout baseLayout;
 	private JButton drawRectangle;
+	private JButton drawCircle;
 	private ArrayList<Rectangle> rectangleList;
 	private ShapePanel shapePanel;
 	
@@ -24,6 +25,7 @@ public class DrawingPanel extends JPanel
 		drawRectangle = new JButton("Rectangle");
 		rectangleList = new ArrayList<Rectangle>();
 		shapePanel = new ShapePanel();
+		drawCircle = new JButton("Draw Circle");
 		
 		//====Calling the methods====
 		setUpPane();
@@ -42,7 +44,10 @@ public class DrawingPanel extends JPanel
 	 */
 	private void setUpPanel()
 	{
+		this.setLayout(baseLayout);
 		this.add(drawRectangle);
+		this.add(drawCircle);
+		this.add(shapePanel);
 	}
 	
 	/*
@@ -50,7 +55,14 @@ public class DrawingPanel extends JPanel
 	 */
 	private void setUpLayout()
 	{
-		
+		baseLayout.putConstraint(SpringLayout.NORTH, drawCircle, 0, SpringLayout.NORTH, drawRectangle);
+		baseLayout.putConstraint(SpringLayout.WEST, drawCircle, 56, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, drawRectangle, -10, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, drawRectangle, -102, SpringLayout.EAST, this);		
+		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 10, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, shapePanel, 10, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, 202, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -29, SpringLayout.EAST, this);
 	}
 	
 	
@@ -59,9 +71,16 @@ public class DrawingPanel extends JPanel
 		drawRectangle.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent click)
 			{
-		
 				shapePanel.addTriangle();
 				repaint();	
+			}
+		});
+		
+		drawCircle.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addCircle();
+				repaint();
 			}
 		});
 	}
