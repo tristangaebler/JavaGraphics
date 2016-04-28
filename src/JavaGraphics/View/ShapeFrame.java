@@ -19,7 +19,7 @@ public class ShapeFrame extends JFrame
 	{
 		this.setContentPane(basePanel);
 		this.setSize(800, 800);
-		this.setResizable(false);
+		this.setResizable(true);
 		this.setVisible(true);
 	}
 	

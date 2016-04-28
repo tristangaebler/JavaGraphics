@@ -25,6 +25,7 @@ public class ShapePanel extends JPanel
 	private ArrayList<Ellipse2D> circleList;
 	private ArrayList<Polygon> triangleList;
 	private ArrayList<Polygon> polygonList;
+	private ArrayList<Rectangle> sqaureList;
 	
 	
 	public ShapePanel()
@@ -35,6 +36,7 @@ public class ShapePanel extends JPanel
 		circleList = new ArrayList<Ellipse2D>();
 		triangleList = new ArrayList<Polygon>();
 		polygonList = new ArrayList<Polygon>();
+		sqaureList = new ArrayList<Rectangle>();
 		
 		
 		//====Calling the methods====
@@ -104,6 +106,10 @@ public class ShapePanel extends JPanel
 		int yposition = (int)(Math.random() * 1000);
 		int width = (int)(Math.random() * 1000);
 		int height = (int)(Math.random() * 1000);
+		
+		Rectangle square = new Rectangle(xposition, yposition, width, height);
+		sqaureList.add(square);
+		repaint();
 	}
 	
 	public void addElipse()
@@ -173,7 +179,7 @@ public class ShapePanel extends JPanel
 		}
 		
 		//****Rectangle****
-		for(Rectangle2D rectangle : rectangleList)
+		for(Rectangle rectangle : rectangleList)
 		{
 			int red = (int)(Math.random() * 256);
 			int green = (int)(Math.random() * 256);
@@ -183,6 +189,19 @@ public class ShapePanel extends JPanel
 			mainGraphics.setStroke(new BasicStroke(pencilSize));
 			mainGraphics.draw(rectangle);
 		}
+		
+		//****Square****
+		for(Rectangle sqaure : sqaureList)
+		{
+			int red = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int pencilSize = (int) (Math.random() * 15);
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(pencilSize));
+			mainGraphics.draw(sqaure);
+		}
+		
 	}
 	
 	public void clear()
