@@ -97,7 +97,7 @@ public class ShapePanel extends JPanel
 	{
 		int xposition = (int)(Math.random() * 100);
 		int yposition = (int)(Math.random() * 100);
-		int diameter = (int)(Math.random() * 10);
+		int diameter = (int)(Math.random() * 100);
 		int diameter2 = (int)(Math.random() * 1000);
 		
 		Ellipse2D ellipse = new Ellipse2D.Double(xposition, yposition, diameter, diameter2);

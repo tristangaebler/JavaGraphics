@@ -33,6 +33,8 @@ public class DrawingPanel extends JPanel
 		drawCircle = new JButton("Draw Circle");
 		drawRectangle = new JButton("Rectangle");
 		drawEllipse = new JButton("Draw Ellipse");
+		drawTriangle = new JButton("Draw Triangle");
+
 	
 
 
@@ -59,6 +61,7 @@ public class DrawingPanel extends JPanel
 		this.add(drawRectangle);
 		this.add(drawCircle);
 		this.add(drawEllipse);
+		this.add(drawTriangle);
 	}
 	
 	/*
@@ -80,6 +83,8 @@ public class DrawingPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -10, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, drawEllipse, 0, SpringLayout.NORTH, clearButton);
 		baseLayout.putConstraint(SpringLayout.WEST, drawEllipse, 29, SpringLayout.EAST, drawRectangle);
+		baseLayout.putConstraint(SpringLayout.NORTH, drawTriangle, 0, SpringLayout.NORTH, clearButton);
+		baseLayout.putConstraint(SpringLayout.WEST, drawTriangle, 26, SpringLayout.EAST, drawEllipse);
 	}
 	
 	
@@ -117,6 +122,15 @@ public class DrawingPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addElipse();
+				repaint();
+			}
+		});
+		
+		drawTriangle.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				shapePanel.addTriangle();
 				repaint();
 			}
 		});
