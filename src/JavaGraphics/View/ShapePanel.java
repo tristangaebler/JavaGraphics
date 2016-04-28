@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 
 import javax.swing.*;
@@ -73,6 +75,14 @@ public class ShapePanel extends JPanel
 	
 	public void addRectangle()
 	{
+		int xposition = (int)(Math.random() * 1000);
+		int yposition = (int)(Math.random() * 1000);
+		int width = (int)(Math.random() * 100);
+		int height = (int)(Math.random() * 1000);
+		
+		Rectangle rectangle = new Rectangle(xposition, yposition, width, height);
+		rectangleList.add(rectangle);
+		repaint();
 		
 	}
 	
@@ -90,7 +100,10 @@ public class ShapePanel extends JPanel
 	
 	public void addSquare()
 	{
-		
+		int xposition = (int)(Math.random() * 1000);
+		int yposition = (int)(Math.random() * 1000);
+		int width = (int)(Math.random() * 1000);
+		int height = (int)(Math.random() * 1000);
 	}
 	
 	public void addElipse()
@@ -157,6 +170,18 @@ public class ShapePanel extends JPanel
 			int pencilSize = (int) (Math.random() * 15);
 			mainGraphics.setStroke(new BasicStroke(pencilSize));
 			mainGraphics.draw(ellipse);
+		}
+		
+		//****Rectangle****
+		for(Rectangle2D rectangle : rectangleList)
+		{
+			int red = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int pencilSize = (int) (Math.random() * 15);
+			mainGraphics.setColor(new Color(red, green, blue));
+			mainGraphics.setStroke(new BasicStroke(pencilSize));
+			mainGraphics.draw(rectangle);
 		}
 	}
 	
