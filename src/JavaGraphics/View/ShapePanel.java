@@ -122,6 +122,17 @@ public class ShapePanel extends JPanel
 			mainGraphics.fill(current);
 
 		}
+		
+		for(Ellipse2D ellipse: circleList)
+		{
+			int red = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, green, blue));
+			int pencilSize = (int) (Math.random() * 15);
+			mainGraphics.setStroke(new BasicStroke(pencilSize));
+			mainGraphics.draw(ellipse);
+		}
 	}
 	
 	public void clear()
