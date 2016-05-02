@@ -149,7 +149,7 @@ public class DrawingPanel extends JPanel
 			}
 		});
 	}
-	
+	/**
 	@Override
 	protected void paintComponent(Graphics currentGraphics)
 	{
@@ -171,6 +171,7 @@ public class DrawingPanel extends JPanel
 		}
 		
 	}
+	*/
 	
 	
 }
