@@ -36,10 +36,6 @@ public class DrawingPanel extends JPanel
 		drawTriangle = new JButton("Draw Triangle");
 		drawSquare = new JButton("Draw Sqaure");
 
-
-	
-
-
 		//====Calling the methods====
 		setUpPane();
 		setUpPanel();
@@ -149,7 +145,7 @@ public class DrawingPanel extends JPanel
 			}
 		});
 	}
-	/**
+
 	@Override
 	protected void paintComponent(Graphics currentGraphics)
 	{
@@ -171,7 +167,7 @@ public class DrawingPanel extends JPanel
 		}
 		
 	}
-	*/
+
 	
 	
 }
