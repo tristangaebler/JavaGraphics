@@ -11,7 +11,7 @@ public class GraphPanel extends JPanel
 	
 	public GraphPanel()
 	{
-		graphArray = new int [] {1, 2, 5, 6, 8, 9,};
+		graphArray = new int [] {104, 209, 35, 215, 290, 134};
 		setupPanel();
 		
 	}

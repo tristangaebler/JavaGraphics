@@ -22,6 +22,7 @@ public class DrawingPanel extends JPanel
 	private JButton clearButton;
 	private ArrayList<Rectangle> rectangleList;
 	private ShapePanel shapePanel;
+	private GraphPanel graphPanel;
 	
 	public DrawingPanel(GraphicsController baseController)
 	{
@@ -29,6 +30,7 @@ public class DrawingPanel extends JPanel
 		baseLayout = new SpringLayout();
 		rectangleList = new ArrayList<Rectangle>();
 		shapePanel = new ShapePanel();
+		graphPanel = new GraphPanel();
 		clearButton = new JButton("Clear the list");
 		drawCircle = new JButton("Draw Circle");
 		drawRectangle = new JButton("Rectangle");
@@ -54,6 +56,7 @@ public class DrawingPanel extends JPanel
 	private void setUpPanel()
 	{
 		this.setLayout(baseLayout);
+		this.add(graphPanel);
 		this.add(shapePanel);
 		this.add(clearButton);
 		this.add(drawRectangle);
@@ -68,7 +71,6 @@ public class DrawingPanel extends JPanel
 	 */
 	private void setUpLayout()
 	{
-		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, -46, SpringLayout.NORTH, clearButton);
 		baseLayout.putConstraint(SpringLayout.NORTH, clearButton, 566, SpringLayout.NORTH, this);
 		baseLayout.putConstraint(SpringLayout.WEST, clearButton, 39, SpringLayout.WEST, this);
 		baseLayout.putConstraint(SpringLayout.SOUTH, clearButton, -10, SpringLayout.SOUTH, this);
@@ -77,15 +79,20 @@ public class DrawingPanel extends JPanel
 		baseLayout.putConstraint(SpringLayout.WEST, drawRectangle, 25, SpringLayout.EAST, drawCircle);
 		baseLayout.putConstraint(SpringLayout.NORTH, drawCircle, 0, SpringLayout.NORTH, clearButton);
 		baseLayout.putConstraint(SpringLayout.WEST, drawCircle, 6, SpringLayout.EAST, clearButton);
-		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 24, SpringLayout.NORTH, this);
-		baseLayout.putConstraint(SpringLayout.WEST, shapePanel, 10, SpringLayout.WEST, this);
-		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, -10, SpringLayout.EAST, this);
 		baseLayout.putConstraint(SpringLayout.NORTH, drawEllipse, 0, SpringLayout.NORTH, clearButton);
 		baseLayout.putConstraint(SpringLayout.WEST, drawEllipse, 29, SpringLayout.EAST, drawRectangle);
 		baseLayout.putConstraint(SpringLayout.NORTH, drawTriangle, 0, SpringLayout.NORTH, clearButton);
 		baseLayout.putConstraint(SpringLayout.WEST, drawTriangle, 26, SpringLayout.EAST, drawEllipse);
 		baseLayout.putConstraint(SpringLayout.NORTH, drawSquare, 0, SpringLayout.NORTH, clearButton);
 		baseLayout.putConstraint(SpringLayout.WEST, drawSquare, 18, SpringLayout.EAST, drawTriangle);
+		baseLayout.putConstraint(SpringLayout.WEST, shapePanel, 6, SpringLayout.EAST, graphPanel);
+		baseLayout.putConstraint(SpringLayout.SOUTH, shapePanel, 0, SpringLayout.SOUTH, graphPanel);
+		baseLayout.putConstraint(SpringLayout.NORTH, graphPanel, 0, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.WEST, graphPanel, 0, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.EAST, graphPanel, -421, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, shapePanel, 0, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, shapePanel, 0, SpringLayout.EAST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, graphPanel, -6, SpringLayout.NORTH, clearButton);
 	}
 	
 	
